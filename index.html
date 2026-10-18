@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>徐佳鑫的个人主页</title>
+    <style>
+        /* 基础设置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', 'Arial', '汉仪粗仿宋简', 'STXingkai', '华文行楷', 'Microsoft YaHei', sans-serif;
+}
+
+/* 网页的主体基础样式 */
+body {
+    background-color: #fcf9f2; /* 淡黄色背景 */
+    color: #4a4a4a;
+    line-height: 1.8;
+    font-size: 18px;
+}
+ /* 顶部导航栏（毛玻璃特效） */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(252, 249, 242, 0.85);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            margin: 0 25px;
+            font-size: 1.3em;
+            font-weight: bold;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4a373;
+            transform: translateY(-2px);
+        }
+        section {
+          /* min-height: 100vh;*/
+           padding:80px 20px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        #hero {
+    background: linear-gradient(135deg, #fff7e6 0%, #fdf2d5 100%);
+    /* 👇 加下面这两行，保证首页撑满且内容居中 */
+    min-height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+        /* 标题样式 */
+        h2 {
+            font-size: 2.5em;
+            color: #d4a373;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #d4a373;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* =========================================
+           核心修改：气泡卡片样式 (三个区块)
+           ========================================= */
+        .card {
+            background: rgba(255, 255, 255, 0.6); /* 半透明气泡感 */
+            padding: 40px;
+            border-radius: 30px; /* 更圆润的边角 */
+            border: 2px solid rgba(212, 163, 115, 0.2); /* 淡淡的边框 */
+            box-shadow: 0 8px 25px rgba(212, 163, 115, 0.1); /* 轻盈的阴影 */
+            max-width: 800px;
+            width: 90%;
+            
+            /* 动画过渡设置：持续时间、缓动曲线（Q弹感） */
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); 
+        }
+
+        /* 鼠标悬停：气泡膨胀、浮起 */
+        .card:hover {
+            transform: translateY(-10px) scale(1.02); /* 向上浮起并放大 */
+            background: rgba(255, 255, 255, 0.95); /* 颜色变实 */
+            box-shadow: 0 20px 40px rgba(212, 163, 115, 0.25); /* 阴影加深 */
+            border-color: rgba(212, 163, 115, 0.5);
+        }
+
+        /* 首页背景 */
+        #hero {
+            background: linear-gradient(135deg, #fff7e6 0%, #fdf2d5 100%);
+        }
+
+        #hero h1 {
+            font-size: 3.5em;
+            color: #333;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        #hero p {
+            font-size: 1.4em;
+            color: #666;
+        }
+
+        /* =========================================
+           核心修改：首页三个气泡超链接
+           ========================================= */
+        .hero-nav {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .hero-nav a {
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.5); /* 默认半透明气泡 */
+            color: #d4a373;
+            padding: 15px 40px;
+            border-radius: 50px; /* 胶囊/气泡圆角 */
+            font-size: 1.3em;
+            font-weight: bold;
+            border: 2px solid rgba(212, 163, 115, 0.3);
+            box-shadow: 0 5px 15px rgba(212, 163, 115, 0.1);
+            
+            /* 动画过渡设置 */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 更有弹性的曲线 */
+        }
+
+        /* 鼠标悬停：气泡膨胀、变色 */
+        .hero-nav a:hover {
+            background: #d4a373;
+            color: #fff;
+            transform: translateY(-8px) scale(1.1); /* 明显放大 */
+            box-shadow: 0 15px 30px rgba(212, 163, 115, 0.4);
+            border-color: #d4a373;
+        }
+
+        /* 爱好标签样式 */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            background: #fdf2d5;
+            color: #b5835a;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: #f5e1b8;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 5px 10px rgba(212, 163, 115, 0.2);
+        }
+        /* 待办事项列表样式 */
+        .task-list {
+            text-align: left;
+            margin-top: 20px;
+            list-style: none;
+        }
+
+        .task-list li {
+            background: rgba(250, 250, 250, 0.7);
+            margin-bottom: 15px;
+            padding: 15px 20px;
+            border-left: 4px solid #d4a373;
+            border-radius: 0 15px 15px 0;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+        }
+
+        .task-list li:hover {
+            background: #fdf2d5;
+            transform: translateX(10px); /* 鼠标放上去往右弹一下 */
+        }
+        
+        /* 不同版块的背景色区分 */
+        #hobbies { background-color: #fffaf0; }
+        #doing { background-color: #fcf9f2; }
+
+        /* 底部未完待续样式 */
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #fdf2d5;
+            color: #b5835a;
+            font-size: 1.3em;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            display: block;
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #d4a373, transparent);
+            margin: 0 auto 20px;
+        }
+
+        .to-be-continued {
+            font-size: 2.5em;
+            font-weight: bold;
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+            color: #d4a373;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; text-shadow: 0 0 15px rgba(212, 163, 115, 0.6); }
+            100% { opacity: 0.7; }
+        }
+    /* 待办列表的鼠标小手和排版 */
+.todo-item {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    gap: 15px; /* 复选框和文字的间距 */
+}
+
+/* 复选框变大 */
+.todo-checkbox {
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+    accent-color: #d4a373; /* 打勾后的颜色变成淡黄色 */
+    cursor: pointer;
+}
+
+/* 底部未完待续的字号调整为 1.8em，稍微小一点但比正文大 */
+.to-be-continued {
+    font-size: 1.8em; 
+}
+/* 打字机光标闪烁特效 */
+h1#typewriter {
+    display: inline-block;
+    margin: 0;
+}
+
+#cursor {
+    color: #d4a373; 
+    font-weight: bold;
+    font-size: 3em;
+    animation: blink 0.8s infinite;
+    display: inline-block;
+    /* 👇 关键：绝对定位 + 强行往上提 */
+    position: relative;
+    top: -0.1em; 
+    left: -5px; /* 稍微向左边靠一点，贴近文字 */
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航栏 -->
+    <nav>
+        <a href=" ">首页</a >
+        <a href="#about">关于我</a >
+        <a href="#hobbies">兴趣爱好</a >
+        <a href="#doing">待办事项</a >
+    </nav>
+
+    <!-- 第一部分：首页 -->
+    <section id="hero">
+        <div class="card">
+            <h1 id="typewriter"></h1>
+            <span id="cursor">|</span>
+            <p>沈阳理工大学 · 信息科学与工程学院</p >
+            <p style="color: #d4a373; font-weight: bold; margin-top: 10px;">计算机科学与技术专业 | 大二学生</p >
+            
+            <div class="hero-nav">
+                <a href="#about">关于我</a >
+                <a href="#hobbies">兴趣爱好</a >
+                <a href="#doing">待办事项</a >
+            </div>
+        </div>
+    </section>
+
+    <!-- 第二部分：关于我 -->
+    <section id="about">
+        <div class="card">
+            <h2>关于我</h2>
+            <p style="text-align: left; font-size: 1.2em; margin-bottom: 15px;">
+                我是徐佳鑫，一名热爱逻辑与创造的计算机专业学生。在沈阳理工大学的学习生活中，我不仅对底层代码充满好奇，也喜欢用代码去构建有温度的交互界面。
+           </p >
+            <p style="text-align: left; font-size: 1.2em;">
+                我性格开朗，做事专注。在写代码和做项目时，我追求严谨；而在生活中，我喜欢用慢节奏的爱好来平衡快节奏的学习。我相信，技术不仅是冰冷的指令，更是改善生活、表达自我的工具。
+            </p >
+        </div>
+    </section>
+
+    <!-- 第三部分：兴趣爱好 -->
+    <section id="hobbies">
+        <div class="card">
+            <h2>兴趣爱好</h2>
+            <p style="font-size: 1.2em;">除了在电脑前敲击键盘，我也有自己专属的“慢时光”空间。</p >
+            <div class="tags">
+                <a href="music.html" target="_blank" class="tag">🎵 听歌</a >
+                <a href="novel.html" target="_blank" class="tag">📚 看小说</a >
+                <a href="crochet.html" target="_blank" class="tag">🧶 钩织</a >
+            </div>
+            <p style="margin-top: 25px; font-size: 1.3em; color: #b5835a;">
+                “最近正在挑战钩织【双元宝围巾】，毛线和代码其实很像，都需要一行一行的耐心堆叠，才能织出完美的作品。”
+            </p >
+        </div>
+    </section>
+
+    <!-- 第四部分：待办事项 -->
+    <section id="doing">
+        <div class="card">
+            <h2>待办事项</h2>
+            <p style="font-size: 1.2em;">大二是一个承上启下的阶段，我正在为了未来的目标不断充电：</p >
+            <ul class="task-list">
+                <li>
+                    <label class="todo-item">
+                        <input type="checkbox" class="todo-checkbox">
+                        <div>
+                            <strong>备战华为 ICT 大赛（实践赛·网络赛道）</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">正在系统学习网络架构与协议相关知识，与团队并肩作战，努力向省赛进发。</span>
+                        </div>
+                    </label>
+                </li>
+                <li>
+                    <label class="todo-item">
+                        <input type="checkbox" class="todo-checkbox">
+                        <div>
+                            <strong>准备英协杯词汇大赛初赛</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">每天打卡四级核心词汇，以赛代练，夯实自己的英语基础，为后续阅读英文技术文档做准备。</span>
+                        </div>
+                    </label>
+                </li>
+                <li>
+                    <label class="todo-item">
+                        <input type="checkbox" class="todo-checkbox" checked> <!-- 这个默认帮你勾上了 -->
+                        <div>
+                            <strong>完成社团通识任务</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">部署个人网页至 GitHub Pages</span>
+                        </div>
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 底部：未完待续 -->
+    <footer>
+        <!-- 字号改为了 1.6em，介于标题和正文之间 -->
+        <div class="to-be-continued">To be continued...</div>
+        <p>人生就像写代码，永远有下一个 Bug 要修，也永远有下一个项目在等你。</p >
+        <p style="margin-top: 15px; font-size: 0.8em; opacity: 0.8;">© 2026 徐佳鑫. Powered by GitHub Pages.</p >
+    </footer>
+    <script>
+        // 1. 设置文字
+        const text = "你好，我是徐佳鑫";
+        let index = 0;
+        
+        const typewriter = document.getElementById("typewriter");
+        const cursor = document.getElementById("cursor");
+        
+        function type() {
+            if (index < text.length) {
+                typewriter.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(type, 350); // 300毫秒打一个字
+            } else {
+                // 👇 核心逻辑：字打完之后，把光标隐藏掉，变回完美的静态！
+                setTimeout(() => {
+                    cursor.style.display = "none";
+                }, 500); // 打完最后一个字停0.5秒后，光标消失
+            }
+        }
+        
+        // 页面加载完成后，开始打字
+        window.onload = type; // 注意这里没有括号
+    </script>
+</body>
+</body>
+</body>
+</html>

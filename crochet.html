@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>我的手工进度墙</title>
+    <style>
+        body {
+            background-color: #fcf9f2;
+            font-family: 'STXingkai', '华文行楷', 'Microsoft YaHei', sans-serif;
+            color: #4a4a4a;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        /* 返回按钮 */
+        .back-btn {
+            text-decoration: none; color: #d4a373;
+            font-size: 1.2em; font-weight: bold;
+            border: 2px solid #d4a373; padding: 8px 20px;
+            border-radius: 20px; transition: 0.3s;
+            display: inline-block; margin-bottom: 30px;
+            background: #fcf9f2;
+        }
+        .back-btn:hover { background: #d4a373; color: #fff; }
+
+        .container { max-width: 1000px; margin: 0 auto; }
+        
+        h1 { text-align: center; color: #d4a373; font-size: 3em; margin-bottom: 10px; }
+        .subtitle { text-align: center; color: #999; margin-bottom: 50px; font-size: 1.2em; }
+
+        /* 拍立得照片墙布局 */
+        .gallery { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 30px; 
+            padding: 20px;
+        }
+        
+        /* 照片卡片（拍立得风格） */
+        .photo-box { 
+            background: #fff; 
+            padding: 15px 15px 60px 15px;
+            border-radius: 5px; 
+            box-shadow: 0 10px 20px rgba(212,163,115,0.15); 
+            transition: all 0.4s ease; 
+            position: relative;
+        }
+        
+        /* 让照片错落有致地倾斜一点点 */
+        .photo-box:nth-child(odd) { transform: rotate(-2deg); }
+        .photo-box:nth-child(even) { transform: rotate(2deg); }
+        
+        /* 鼠标悬停时摆正并放大 */
+        .photo-box:hover { 
+            transform: scale(1.05) rotate(0deg); 
+            z-index: 10; 
+            box-shadow: 0 15px 35px rgba(212,163,115,0.3); 
+        }
+        
+        /* 👇 这里就是用来放你照片的框 */
+        .photo-box img { 
+            width: 100%; 
+            height: 250px; 
+            object-fit: cover; 
+            border-radius: 3px; 
+            /* 如果没有图片，就会显示这个浅灰背景色 */
+            background: #f0f0f0; 
+            border: 2px dashed #ccc; /* 加个虚线边框提示你放图 */
+        }
+        
+        /* 照片底部的文字（像手写日记） */
+        .photo-caption { 
+            text-align: center; 
+            margin-top: 20px; 
+            font-size: 1.15em; 
+            color: #b5835a; 
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            width: 100%;
+        }
+        
+        /* 用胶带贴住照片的装饰特效 */
+        .tape {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-3deg);
+            width: 100px;
+            height: 30px;
+            background: rgba(212, 163, 115, 0.4);
+            z-index: 2;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html#hobbies" class="back-btn">← 返回主页</a >
+        <h1>钩织时光进度条</h1>
+        <p class="subtitle">“理想很丰满，毛线很骨感”—— 一个手工新手的自我修养</p >
+
+        <div class="gallery">
+            
+            <!-- 👇 照片 1：等你添加图片 -->
+            <div class="photo-box">
+                <div class="tape"></div>
+                <!-- 找到 src=""，在引号中间填你图片的名字，比如 src="img1.jpg" -->
+                <img src="img1.jpg" alt="图片">
+                <div class="photo-caption">失针的双元宝<br></div>
+            </div>
+            
+            <!-- 👇 照片 2：等你添加图片 -->
+            <div class="photo-box">
+                <div class="tape" style="transform: translateX(-50%) rotate(4deg); background: rgba(212, 163, 115, 0.3);"></div>
+                <!-- 找到 src=""，在引号中间填你图片的名字，比如 src="img2.jpg" -->
+                <img src="img2.jpg" alt="图片">
+                <div class="photo-caption">针数错误的梯形<br></div>
+            </div>
+            
+            <!-- 👇 照片 3：等你添加图片 -->
+            <div class="photo-box">
+                <div class="tape" style="transform: translateX(-50%) rotate(-2deg); background: rgba(212, 163, 115, 0.5);"></div>
+                <!-- 找到 src=""，在引号中间填你图片的名字，比如 src="img.jpg" -->
+                <img src="img3.jpg" alt="图片">
+                <div class="photo-caption">此乃何物<br></div>
+            </div>
+
+            <!-- 👇 照片 4：等你添加图片 -->
+            <div class="photo-box">
+                <div class="tape" style="transform: translateX(-50%) rotate(1deg); background: rgba(212, 163, 115, 0.35);"></div>
+                <!-- 找到 src=""，在引号中间填你图片的名字，比如 src="img4.jpg" -->
+                <img src="img4.jpg" alt="图片">
+                <div class="photo-caption">唯一成品<br></div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

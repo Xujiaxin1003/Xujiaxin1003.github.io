@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>我的专属书单</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #fcf9f2; font-family: 'STXingkai', '华文新魏', sans-serif; color: #4a4a4a; padding: 40px 20px; }
+        
+        .back-btn { position: fixed !important; top: 30px !important; left: 30px !important; z-index: 9999 !important; text-decoration: none !important; color: #d4a373; font-size: 1.2em; font-weight: bold; border: 2px solid #d4a373; padding: 8px 20px; border-radius: 20px; background: #fcf9f2; transition: 0.3s; }
+        .back-btn:hover { background: #d4a373; color: #fff; }
+
+        .container { max-width: 800px; margin: 0 auto; padding-top: 20px; }
+        h1 { text-align: center; color: #d4a373; font-size: 3em; margin-bottom: 10px; }
+        .subtitle { text-align: center; color: #999; margin-bottom: 50px; font-size: 1.2em; }
+
+        .book-item { background: #fff; padding: 30px; border-radius: 20px; margin-bottom: 30px; box-shadow: 0 10px 25px rgba(212, 163, 115, 0.1); border-left: 6px solid #d4a373; transition: 0.4s; position: relative; overflow: hidden; }
+        .book-item:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 15px 35px rgba(212, 163, 115, 0.25); background: #fffdfa; }
+        .book-item::before { content: '“'; position: absolute; top: -20px; right: 20px; font-size: 120px; color: rgba(212, 163, 115, 0.05); font-family: serif; }
+        .book-title { font-size: 1.8em; font-weight: bold; color: #333; margin-bottom: 5px; position: relative; z-index: 1; }
+        .book-author { font-size: 1em; color: #d4a373; margin-bottom: 15px; font-weight: bold; }
+        .book-desc { font-size: 1.15em; color: #666; line-height: 1.9; margin-bottom: 15px; text-align: justify; }
+        .book-quote { background: #fdf2d5; padding: 15px 20px; border-radius: 10px; color: #b5835a; font-size: 1.1em; font-style: italic; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <a href="index.html#hobbies" class="back-btn">← 返回主页</a >
+    <div class="container">
+        <h1>我的私人书单</h1>
+        <p class="subtitle">在别人的故事里，流自己的眼泪</p >
+        <div class="book-item">
+            <div class="book-title">《三体》</div>
+            <div class="book-author">作者：刘慈欣 | 科幻 / 硬核宇宙</div>
+            <div class="book-desc">从地球往事到黑暗森林，再到死神永生。大刘构建了一个极其宏大且冷酷的宇宙社会学体系。在宇宙的尺度下，人类的道德、爱情与挣扎显得如此微不足道，但又如此熠熠生辉。看完之后，每次仰望星空，都会觉得那片黑暗深邃得让人敬畏，又让人着迷。它彻底重塑了我对空间和时间的认知。</div>
+            <div class="book-quote">“弱小和无知不是生存的障碍，傲慢才是。” <br>“给岁月以文明，而不是给文明以岁月。”</div>
+        </div>
+        <div class="book-item">
+            <div class="book-title">《云边有个小卖部》</div>
+            <div class="book-author">作者：张嘉佳 | 治愈 / 青春 / 亲情</div>
+            <div class="book-desc">这是一本让人笑着笑着就哭了的书。刘十三在城市里撞得头破血流，最后被外婆王莺莺开着拖拉机连夜拖回了云边镇。这里有夏天冰凉的西瓜，有一直陪伴的程霜，有永远护着他的外婆。它告诉我们，有些人不论生死，都陪在身旁。那些生活中的小确幸，往往是支撑我们走过漫长岁月的全部力量。</div>
+            <div class="book-quote">“生命是有光的。在我熄灭以前，能够照亮你一点，就是我所有能做的了。” <br>“希望和悲伤，都是一缕光。”</div>
+        </div>
+        <div class="book-item">
+            <div class="book-title">《天才俱乐部》</div>
+            <div class="book-author">作者：张小花 | 科幻 / 悬疑 / 脑洞</div>
+            <div class="book-desc">这是一本设定极其惊艳的作品。当人类历史上最顶尖的天才们（比如爱因斯坦、达芬奇）在一个神秘的俱乐部里相遇，跨越时空的谜题被层层剥开。小说不仅有硬核的物理与科学理论，更有对人性、历史走向的深刻探讨。读起来像是在解一个巨大的谜团，每一个反转都让人直呼过瘾，逻辑闭环极其严密。</div>
+            <div class="book-quote">“天才之所以是天才，是因为他们看到了凡人看不到的深渊，并且敢于凝视它。”</div>
+        </div>
+    </div>
+</body>
+</html>
