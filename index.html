@@ -285,6 +285,56 @@ h1#typewriter {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
+/* =========================================
+   手机端专属适配（当屏幕宽度小于 768px 时生效）
+   ========================================= */
+@media screen and (max-width: 768px) {
+    /* 1. 缩小全局字体，干掉丑陋的默认巨大黑体 */
+    body {
+        font-size: 14px !important;
+    }
+
+    /* 2. 修复顶部导航栏：让它们横排且变小 */
+    nav {
+        padding: 10px 0 !important;
+        flex-wrap: nowrap !important;
+    }
+    nav a {
+        margin: 0 8px !important;
+        font-size: 0.9em !important;
+        white-space: nowrap !important; /* 强制文字不换行 */
+    }
+
+    /* 3. 修复首页超大标题 */
+    #hero h1 {
+        font-size: 2em !important;
+        letter-spacing: 0 !important;
+    }
+    
+    /* 4. 修复打字机光标大小 */
+    #cursor {
+        font-size: 2em !important;
+        margin-top: 0 !important;
+        top: 0 !important;
+    }
+
+    /* 5. 首页的三行副标题变小 */
+    #hero p {
+        font-size: 1em !important;
+    }
+
+    /* 6. 缩小首页那三个气泡按钮，防止挤在一起 */
+    .hero-nav a {
+        font-size: 0.9em !important;
+        padding: 8px 15px !important;
+    }
+    
+    /* 7. 修复卡片的内边距，让手机上有更多空间展示文字 */
+    .card {
+        padding: 20px !important;
+        width: 95% !important;
+    }
+}
     </style>
 </head>
 <body>
